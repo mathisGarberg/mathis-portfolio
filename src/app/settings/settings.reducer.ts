@@ -29,6 +29,13 @@ export function settingsReducer(
         case SettingsActionTypes.CHANGE_THEME:
         case SettingsActionTypes.CHANGE_AUTO_NIGHT_AUTO_MODE:
             return { ...state, ...action.payload };
+        
+        case SettingsActionTypes.CHANGE_ANIMATIONS_PAGE_DISABLED:
+            return {
+              ...state,
+              pageAnimations: false,
+              pageAnimationsDisabled: action.payload.pageAnimationsDisabled
+            };
 
         default:
             return state;

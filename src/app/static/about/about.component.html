@@ -1,1 +1,64 @@
-Hello World
+<div class="background">
+    <div class="gradient">
+        <main class="main">
+            <article class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="hero">
+                            <div class="hero-content">
+                                <div class="hero-image"></div>
+                            </div>
+                            <div class="hero-text-container">
+                                <h1 class="hero-title" [ngClass]="routeAnimationsElements">
+                                    Hello! My name is Mathis Garberg, a fullstack developer from Oslo, Norway with many of years experience in a wide range of fields.
+                                    Currently working as a fullstack developer at Telenor Norway.
+                                </h1>
+                                <p class="large" [ngClass]="routeAnimationsElements">Contact me at <a class="link-underline mail-link" href="mailto:mathis.garberg@outlook.com">mathis.garberg@outlook.com</a></p>
+                            </div>
+                            <div class="hero-arrow" data-component="smoothScroll" [ngClass]="routeAnimationsElements">
+                                <svg class="clickable" version="1.0" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <polygon points="0.645,10.383 16,23.871 31.355,10.383 29.375,8.129 16,19.878 2.625,8.129 "></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="destination">
+                    <div class="col-md-12">
+                        <header class="section-header">
+                            <h2 class="section-header-title">Skills</h2>
+                        </header>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <p class="extra-large">
+                            Throughout my education, I've gained experience in a broad
+                            range of web technologies. Among my primary skills are:
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 mb-xs-20 mb-md-40" *ngFor="let skill of skills$ | async">
+                                <h4>{{ skill.name }}</h4>
+                                <p>{{ skill.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <header class="section-header">
+                            <h2 class="section-header-title">Hobbies</h2>
+                        </header>
+                        <p class="extra-large">
+                            I'm an active person who likes to try new things. Throughout my education at NTNU in 
+                            Gjøvik, I tried a lot of different sports and extracurricular activies. Among the 
+                            activities was american football, which I played for the local team, Gjøvik Swans. 
+                            Since all of our games were captured on footage, I put together some of my own 
+                            highlights from my last season in the video below.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+</div>

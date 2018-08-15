@@ -1,0 +1,22 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+.show-scroll {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+
+.elevator {
+    cursor: pointer;
+}
+
+.elevator svg {
+    height: 5rem;
+    fill: red;
+    transform: rotate(180deg);
+}

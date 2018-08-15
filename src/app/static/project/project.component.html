@@ -1,1 +1,19 @@
-Hello World
+<div class="container">
+  <div class="row">
+    <div class="offset-md-2 col-md-8 col-sm-12">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title><h2>{{project.title}}</h2></mat-card-title>
+            <mat-card-subtitle>Mathis Garberg, {{project.year}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="project.thumbnail" alt="..." id="image">
+          <mat-card-content>
+            <p *ngFor="let section of project.sections">
+              {{section.description}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+</div>

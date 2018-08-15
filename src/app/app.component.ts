@@ -16,7 +16,8 @@ import { environment as env } from '@env/environment';
 import {
   SettingsState,
   selectorSettings,
-  NIGHT_MODE_THEME
+  NIGHT_MODE_THEME,
+  ActionSettingsChangeAnimationsPageDisabled
 } from './settings';
 
 @Component({
@@ -44,6 +45,8 @@ export class AppComponent implements OnInit {
     { link: 'settings', label: 'anms.menu.settings' }
   ];
 
+  settings: SettingsState;
+
   constructor(
     public overlayContainer: OverlayContainer,
     private store: Store<any>,
@@ -65,6 +68,13 @@ export class AppComponent implements OnInit {
   }
 
   private subscribeToSettings() {
+    if (AppComponent.isIEorEdge()) {
+      this.store.dispatch(
+        new ActionSettingsChangeAnimationsPageDisabled({
+          pageAnimationsDisabled: true
+        })
+      );
+    }
     this.store
       .select(selectorSettings)
       .pipe(takeUntil(this.unsubscribe$))

@@ -19,9 +19,14 @@
 
     <div class="toolbar">
         <mat-toolbar color="primary">
+            
             <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
                 <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
             </button>
+
+            <span routerLink=""
+                    class="branding spacer center d-none d-sm-inline d-md-none"> {{ 'ILoveAngular' }} <i class="fas fa-heart"></i></span>
+            <span routerLink="" class="branding spacer d-none d-md-inline"> {{ 'ILoveAngular' }} <i class="fas fa-heart"></i></span>
 
             <span class="d-none d-md-inline">
                 <button mat-button class="nav-button" *ngFor="let item of navigation"
@@ -42,6 +47,7 @@
                 target="_blank">
                 <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
             </a>
+           
         </mat-toolbar>
     </div>
 
@@ -51,10 +57,14 @@
             [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
             <router-outlet #o="outlet"></router-outlet>
         </div>
-
+        
         <div class="footer">
             <div class="row">
                 <div class="col-sm-12 links">
+                    <a href="https://www.linkedin.com/in/mathis-garberg-451672144/" target="_blank">
+                        <mat-icon fontSet="fab" fontIcon="fa-linkedin-in"></mat-icon>
+                        <span>LinkedIn</span>
+                    </a>
                     <a href="https://www.github.com/mathis.garberg" target="_blank">
                         <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
                         <span>Github</span>
@@ -82,7 +92,5 @@
         </div>
 
     </div>
-
-    
 
 </mat-sidenav-container>

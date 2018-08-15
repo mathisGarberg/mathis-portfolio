@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>Settings</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="offset-md-3 col-md-6 group">
+            <h2>Themes</h2>
+            <div class="icon-form-field">
+                <mat-icon fontSet="fas" fontIcon="fa-paint-brush" color="accent"></mat-icon>
+                <mat-form-field>
+                  <mat-select [placeholder]="'anms.settings.themes.placeholder'"
+                              [ngModel]="settings?.theme"
+                              (selectionChange)="onThemeSelect($event)"
+                              name="themes">
+                    <mat-option *ngFor="let t of themes" [value]="t.value">
+                      {{ 'anms.settings.themes.' + t.label }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            <div class="icon-form-field">
+                <mat-icon fontSet="fas" fontIcon="fa-lightbulb" color="accent"></mat-icon>
+                <mat-placeholder>Night Mode</mat-placeholder>
+                <mat-slide-toggle
+                    [checked]="settings?.autoNightMode"
+                    (change)="onAutoNightModeToggle($event)">
+                </mat-slide-toggle>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { environment as env } from '@env/environment';
-import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
+import {
+  ROUTE_ANIMATIONS_ELEMENTS,
+  ProjectService,
+  Project
+} from '@app/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'anms-project',
@@ -12,9 +18,26 @@ export class ProjectComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   versions = env.versions;
 
-  ngOnInit() {}
+  project: Project;
 
-  openLink(link: string) {
-    window.open(link, '_blank');
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) {}
+
+  ngOnInit() {
+    this.loadProject();
   }
+
+  loadProject() {
+    this.projectService.getSingle(this.route.params['id'])
+      .pipe(
+        map(project => project)
+      )
+      .subscribe((project) => {
+        console.log(project);
+        this.project = project;
+      });
+  }
+
 }

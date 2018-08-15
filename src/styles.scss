@@ -3,6 +3,7 @@
 
 @import '../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/_nav';
 @import '../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
 @import "../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-solid";
 @import '../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
@@ -20,10 +21,12 @@
 
 @import 'styles-reset.scss-theme';
 @import 'app/app.component.scss-theme';
+@import 'app/static/about/about.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
     @include anms-styles-reset-theme($theme);
     @include anms-app-component-theme($theme);
+    @include anms-about-component-theme($theme);
 }
 
 .default-theme {

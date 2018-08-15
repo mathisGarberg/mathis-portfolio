@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { TranslateModule } from '@ngx-translate/core';
+
+// import { VgCoreModule } from 'videogular2/core';
+// import { VgControlsModule } from 'videogular2/controls';
+// import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+// import { VgBufferingModule } from 'videogular2/buffering';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,12 +27,23 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { SectionComponent } from './components/section/section.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     TranslateModule,
+
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    // VgBufferingModule,
 
     MatButtonModule,
     MatToolbarModule,
@@ -43,14 +60,26 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+
+    NgbModule
   ],
-  declarations: [],
+  declarations: [
+    ScrollToTopComponent,
+    SectionComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,
+    RouterModule,
+    RouterModule,
 
     TranslateModule,
+
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    // VgBufferingModule,
 
     MatButtonModule,
     MatMenuModule,
@@ -68,6 +97,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
+
+    NgbModule,
+
+    ScrollToTopComponent,
+    SectionComponent
   ]
 })
 export class SharedModule {}

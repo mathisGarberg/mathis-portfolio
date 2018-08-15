@@ -1,0 +1,21 @@
+@import '../../../../styles-variables';
+
+li {
+    list-style-type: none;
+}
+
+ul li {
+    font-size: 1.4rem;
+}
+
+.filter-list {
+    margin: 0;
+    padding: 0;
+}
+
+.show-more  .link{
+    color: #c9c9c9;
+    font-size: 1.2rem;
+    line-height: 2.7rem;
+    cursor: pointer;
+}

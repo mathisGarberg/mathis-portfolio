@@ -1,60 +1,35 @@
 <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="main-heading">{{ 'Projects' }}</h1>
-          </div>
-        </div>
-        <div class="row align-items-end">
-          <div class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>Wordfilter</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="../../../assets/images/french-swear-words-quebec-dimitri-otis-getty-56a640e35f9b58b7d0e0b393.JPG" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    "Wordfilter" was a small project I created a course at NTNU Gjøvik, called "Programming for the
-                    Web. The project is written, using pure JavaScript, and spanned over the course of three weeks.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>VIEW DETAILS</button>
-                </mat-card-actions>
-              </mat-card>
-          </div>
-          <div class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>Byvandring i Gjøvik</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="../../../assets/images/160711_FT_pokemon-go.jpg.CROP.promo-xlarge2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    During the summer of 2017, I wanted to get some more work-related experience, before starting a 
-                    new job. We decided to continue working on our bachelor-assignment.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>VIEW DETAILS</button>
-                </mat-card-actions>
-              </mat-card>
-          </div>
-          <div class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>Pong With Animations</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="../../../assets/images/pong.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>SHOW DETAILS</button>
-                </mat-card-actions>
-              </mat-card>
-          </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="main-heading">{{ 'Highlighted Projects' }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-6 col-lg-6" [ngClass]="routeAnimationsElements" *ngFor="let project of projects$ | async">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>{{project.title}}</mat-card-title>
+              </mat-card-header>
+              <img mat-card-image [src]="project.thumbnail">
+              <mat-card-content>
+                <p>{{project.sections[0].description}}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button [routerLink]="['/project', project.id]">VIEW DETAILS</button>
+              </mat-card-actions>
+            </mat-card>
         </div>
       </div>
+    </div>
+    <aside class="sidebar col-md-3 col-sm-12">
+    
+      <div *ngFor="let section of sections$ | async">
+        <app-section [section]="section"></app-section>
+      </div>
+
+    </aside>
+  </div>
+  
+</div>
