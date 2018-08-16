@@ -1,6 +1,12 @@
 import browser from 'browser-detect';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { ActivationEnd, Router, NavigationEnd } from '@angular/router';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { NavigationCancel,
+  Event,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router } from '@angular/router';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
@@ -49,10 +55,15 @@ export class AppComponent implements OnInit {
 
   constructor(
     public overlayContainer: OverlayContainer,
+    private _loadingBar: SlimLoadingBarService,
     private store: Store<any>,
     private router: Router,
     private animationService: AnimationsService,
-  ) {}
+  ) {
+    this.router.events.subscribe((event: Event) => {
+      this.navigationInterceptor(event);
+    });
+  }
 
   private static isIEorEdge() {
     return ['ie', 'edge'].includes(browser().name);
@@ -96,6 +107,21 @@ export class AppComponent implements OnInit {
       : theme
     ).toLowerCase();
     this.componentCssClass = effectiveTheme;
+  }
+
+  private navigationInterceptor(event: Event): void {
+    if (event instanceof NavigationStart) {
+      this._loadingBar.start();
+    }
+    if (event instanceof NavigationEnd) {
+      this._loadingBar.complete();
+    }
+    if (event instanceof NavigationCancel) {
+      this._loadingBar.stop();
+    }
+    if (event instanceof NavigationError) {
+      this._loadingBar.stop();
+    }
   }
 
 }

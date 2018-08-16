@@ -26,8 +26,10 @@ const CORE_PROVIDERS = [
     declarations: [],
     imports: [
         CommonModule,
+        
         StoreModule.forRoot({}, { metaReducers }),
         EffectsModule.forRoot([]),
+
     ],
     exports: [],
     providers: [

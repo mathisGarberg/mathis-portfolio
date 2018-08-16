@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { SharedModule } from '@app/shared';
 import { CoreModule } from '@app/core';
@@ -19,6 +20,9 @@ import { AppComponent } from './app.component';
     // angular
     BrowserAnimationsModule,
     BrowserModule,
+
+    // 3rd party
+    SlimLoadingBarModule,
 
     // core & shared
     CoreModule,
