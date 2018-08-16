@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { environment as env } from '@env/environment';
@@ -30,12 +30,10 @@ export class ProjectComponent implements OnInit {
   }
 
   loadProject() {
-    this.projectService.getSingle(this.route.params['id'])
+    this.projectService.getSingle(this.route.snapshot.paramMap.get('id')])
       .pipe(
         map(project => project)
-      )
-      .subscribe((project) => {
-        console.log(project);
+      ).subscribe((project) => {
         this.project = project;
       });
   }

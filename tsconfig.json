@@ -11,7 +11,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "types": [
-      "hammerjs"
+      "hammerjs",
+      "jasmine"
     ],
     "typeRoots": [
       "node_modules/@types"

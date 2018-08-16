@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'; 
 import { MetaReducer, StoreModule } from '@ngrx/store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,6 +12,8 @@ import { DataModule } from './data/data.module';
 import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { AnimationsService } from './animations/animations.service';
+
+import { ProjectService } from './services/project.service';
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
 
@@ -26,6 +29,7 @@ const CORE_PROVIDERS = [
     declarations: [],
     imports: [
         CommonModule,
+        HttpClientModule,
         
         StoreModule.forRoot({}, { metaReducers }),
         EffectsModule.forRoot([]),
@@ -34,8 +38,11 @@ const CORE_PROVIDERS = [
     exports: [],
     providers: [
         ...CORE_PROVIDERS,
+
         LocalStorageService,
-        AnimationsService
+        AnimationsService,
+
+        ProjectService
     ],
 })
 export class CoreModule {
