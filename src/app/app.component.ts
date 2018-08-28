@@ -43,12 +43,12 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
   navigation = [
     { link: 'about', label: 'About' },
-    { link: 'projects', label: 'Projects' },
+    { link: 'projects/frontend', label: 'Projects' },
     { link: 'stories', label: 'Stories' }
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'anms.menu.settings' }
+    { link: 'settings', label: 'Settings' }
   ];
 
   settings: SettingsState;
@@ -90,7 +90,6 @@ export class AppComponent implements OnInit {
       .select(selectorSettings)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(settings => {
-        console.log(settings);
         this.setTheme(settings);
         this.animationService.updateRouteAnimationType(
           settings.pageAnimations,
@@ -106,6 +105,7 @@ export class AppComponent implements OnInit {
       ? NIGHT_MODE_THEME
       : theme
     ).toLowerCase();
+    console.log(settings);
     this.componentCssClass = effectiveTheme;
   }
 

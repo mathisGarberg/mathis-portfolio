@@ -6,7 +6,8 @@ import { Project } from '@app/core/models';
 
 const routes = {
   projects: `/api/projects`,
-  project: (id: string) => `/api/projects/${id}`
+  project: (id: string) => `/api/projects/${id}`,
+  projectsByCategory: (category: string) => `/api/projects/category/${category}`,
 };
 
 @Injectable()
@@ -26,6 +27,15 @@ export class ProjectService {
   getSingle(id: string): Observable<Project> {
     return this.httpClient
       .get(routes.project(id))
+      .pipe(
+        map((body: any) => body),
+        catchError(() => of('Error, could not load data'))
+      );
+  }
+
+  getByCategory(category: string): Observable<Project[]> {
+    return this.httpClient
+      .get(routes.projectsByCategory(category))
       .pipe(
         map((body: any) => body),
         catchError(() => of('Error, could not load data'))

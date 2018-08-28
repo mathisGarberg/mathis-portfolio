@@ -13,7 +13,7 @@ const routes: Routes = [
     data: { title: 'anms.menu.about' }
   },
   {
-    path: 'projects',
+    path: 'projects/:category',
     component: ProjectsComponent,
     data: { title: 'anms.menu.projects' }
   },

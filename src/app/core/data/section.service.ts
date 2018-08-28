@@ -13,12 +13,12 @@ export class SectionService {
                 {
                     id: 1,
                     name: 'Games',
-                    link: 'games'
+                    link: '/projects/games'
                 },
                 {
                     id: 2,
                     name: 'Web Development',
-                    link: 'web-development'
+                    link: '/projects/web-development'
                 }
             ]
         },
@@ -28,22 +28,22 @@ export class SectionService {
                 {
                     id: 1,
                     name: 'AngularJS',
-                    link: ''
+                    link: '/projects/angular-js'
                 },
                 {
                     id: 2,
                     name: 'Angular 2.x',
-                    link: ''
+                    link: '/projects/angular-2x'
                 },
                 {
                     id: 1,
                     name: 'Vue',
-                    link: ''
+                    link: '/projects/vue'
                 },
                 {
                     id: 2,
                     name: 'Vanilla JS',
-                    link: ''
+                    link: '/projects/vanillajs'
                 }
             ]
         },

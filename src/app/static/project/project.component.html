@@ -5,13 +5,20 @@
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
             <mat-card-title><h2>{{project?.title}}</h2></mat-card-title>
-            <mat-card-subtitle>Mathis Garberg, {{project?.year}}</mat-card-subtitle>
+            <mat-card-subtitle>Mathis Garberg, {{project?.year | date: 'dd.MM.yyyy'}}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="{{project?.thumbnail}}" alt="..." id="image">
           <mat-card-content>
-            <p *ngFor="let section of project?.sections">
-              {{section.description}}
-            </p>
+            <div *ngFor="let section of project?.sections">
+              <h2>{{section.title}}</h2>
+              <mat-divider></mat-divider>
+              <p style="margin-top: 20px">{{section.description}}</p>
+            </div>
+            <h2>Technical Sheet</h2>
+            <p>Code technologies I got involved with while working on this project.</p>
+            <ul>
+              <li *ngFor="let technology of project?.technologies">{{technology}}</li>
+            </ul>
           </mat-card-content>
         </mat-card>
     </div>

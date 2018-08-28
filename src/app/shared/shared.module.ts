@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 // import { VgCoreModule } from 'videogular2/core';
 // import { VgControlsModule } from 'videogular2/controls';
@@ -39,6 +40,7 @@ import { SectionComponent } from './components/section/section.component';
     RouterModule,
 
     TranslateModule,
+    ScrollToModule.forRoot(),
 
     // VgCoreModule,
     // VgControlsModule,
@@ -75,6 +77,7 @@ import { SectionComponent } from './components/section/section.component';
     RouterModule,
 
     TranslateModule,
+    ScrollToModule,
 
     // VgCoreModule,
     // VgControlsModule,

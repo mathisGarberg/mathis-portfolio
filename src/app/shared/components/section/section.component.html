@@ -6,10 +6,10 @@
       </div>
       <ul class="filter-list">
         <li class="filter-list-item" *ngFor="let link of displayedItems">
-          <a [routerLink]="['/project/'+section.title.toLowerCase(), link.link]">{{ link.name }}</a> 
+          <a [routerLink]="link.link" routerLinkActive="active">{{ link.name }}</a> 
         </li>
         <li [hidden]="isCollapsed" *ngFor="let hiddenItem of hiddenItems">
-          <a [routerLink]="['/project/'+section.title.toLowerCase(), hiddenItem.link]">{{ hiddenItem.name }}</a>
+          <a [routerLink]="[hiddenItem.link]" routerLinkActive="active">{{ hiddenItem.name }}</a>
         </li>
         <li class="show-more" [hidden]="section.links.length <= 3">
           <a class="link" (click)="toggleContent()">

@@ -30,7 +30,7 @@ export class ProjectComponent implements OnInit {
   }
 
   loadProject() {
-    this.projectService.getSingle(this.route.snapshot.paramMap.get('id')])
+    this.projectService.getSingle(this.route.snapshot.paramMap.get('id'))
       .pipe(
         map(project => project)
       ).subscribe((project) => {

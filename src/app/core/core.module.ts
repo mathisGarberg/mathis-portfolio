@@ -33,7 +33,6 @@ const CORE_PROVIDERS = [
         
         StoreModule.forRoot({}, { metaReducers }),
         EffectsModule.forRoot([]),
-
     ],
     exports: [],
     providers: [

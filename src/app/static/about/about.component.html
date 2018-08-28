@@ -15,11 +15,11 @@
                                 </h1>
                                 <p class="large" [ngClass]="routeAnimationsElements">Contact me at <a class="link-underline mail-link" href="mailto:mathis.garberg@outlook.com">mathis.garberg@outlook.com</a></p>
                             </div>
-                            <div class="hero-arrow" data-component="smoothScroll" [ngClass]="routeAnimationsElements">
+                            <!-- <div class="hero-arrow" data-component="smoothScroll" [ngx-scroll-to]="'destionation'">
                                 <svg class="clickable" version="1.0" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <polygon points="0.645,10.383 16,23.871 31.355,10.383 29.375,8.129 16,19.878 2.625,8.129 "></polygon>
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                             range of web technologies. Among my primary skills are:
                         </p>
                     </div>
-                    <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-12 col-md-6" id="destination">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-12 mb-xs-20 mb-md-40" *ngFor="let skill of skills$ | async">
                                 <h4>{{ skill.name }}</h4>

@@ -11,14 +11,14 @@
             <div class="icon-form-field">
                 <mat-icon fontSet="fas" fontIcon="fa-paint-brush" color="accent"></mat-icon>
                 <mat-form-field>
-                  <mat-select [placeholder]="'anms.settings.themes.placeholder'"
-                              [ngModel]="settings?.theme"
-                              (selectionChange)="onThemeSelect($event)"
-                              name="themes">
-                    <mat-option *ngFor="let t of themes" [value]="t.value">
-                      {{ 'anms.settings.themes.' + t.label }}
-                    </mat-option>
-                  </mat-select>
+                    <mat-select [placeholder]="'Select theme'"
+                            [ngModel]="settings?.theme"
+                            (selectionChange)="onThemeSelect($event)"
+                            name="themes">
+                        <mat-option style="background: #FFF" *ngFor="let t of themes" [value]="t.value">
+                            {{ t.label }}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
               </div>
             <div class="icon-form-field">

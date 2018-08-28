@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         this.unsubscribe$.complete();
     }
 
-    onThemeSelect({ value: theme }) {
+    onThemeSelect({ value: theme })  {
         this.store.dispatch(new ActionSettingsChangeTheme({ theme }));
         this.store.dispatch(new ActionSettingsPersist({ settings: this.settings }));
     }

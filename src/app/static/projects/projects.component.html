@@ -6,30 +6,31 @@
   </div>
   <div class="row">
     <div class="col-md-9">
+      <div *ngIf="(projects$ | async)?.length == 0">
+        <h2>No results.</h2>
+      </div>
+      <span *ngIf="isLoading">Loading...</span>
       <div class="row">
-        <div class="col-md-6 col-lg-6" [ngClass]="routeAnimationsElements" *ngFor="let project of projects$ | async">
-            <mat-card class="example-card">
-              <mat-card-header>
-                <mat-card-title>{{project.title}}</mat-card-title>
-              </mat-card-header>
-              <img mat-card-image [src]="project.thumbnail">
-              <mat-card-content>
-                <p>{{project.sections[0].description}}</p>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-button [routerLink]="['/project', project._id]">VIEW DETAILS</button>
-              </mat-card-actions>
-            </mat-card>
+        <div class="col-md-6 col-lg-6" *ngFor="let project of projects$ | async">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{project.title}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="project.thumbnail">
+            <mat-card-content>
+              <p>{{project.sections[0].description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button [routerLink]="['/project', project._id]">READ MORE</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </div>
     <aside class="sidebar col-md-3 col-sm-12">
-    
-      <div *ngFor="let section of sections$ | async">
+      <div *ngFor="let section of sections$ | async" [ngClass]="routeAnimationsElements">
         <app-section [section]="section"></app-section>
       </div>
-
     </aside>
   </div>
-  
 </div>

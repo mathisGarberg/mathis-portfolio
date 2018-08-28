@@ -14,6 +14,13 @@ router.get('/projects', function (req, res, next) {
     })
 });
 
+// get projects by category
+router.get('/projects/category/:category', (req, res, next) => {
+    Project.find({categories: req.params.category}).then((projects) => {
+        res.send(projects);
+    });
+});
+
 // get a single project
 router.get('/projects/:id', (req, res, next) => {
     Project.findById({_id: req.params.id}).then((project) => {
